@@ -1,0 +1,14 @@
+:root {
+  --global-background-color: #161616;
+  --global-font-color: #ededed;
+
+  --card-background-color-primary: #010101;
+  --card-background-color-secondary: #141414;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --global-font-color: #213547;
+    --global-background-color: #fff;
+  }
+}
