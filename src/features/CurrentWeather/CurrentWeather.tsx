@@ -1,6 +1,8 @@
-import { useCurrentWeather } from './services/fetchWeather';
+import { useCurrentWeather } from './hooks/useCurrentWeather';
 
 import styles from './CurrentWeather.module.css';
+import { BsFillSunsetFill } from 'react-icons/bs';
+import { MdOutlineWindPower } from 'react-icons/md';
 
 export const CurrentWeather = () => {
   const current = useCurrentWeather();
@@ -20,21 +22,13 @@ export const CurrentWeather = () => {
 
       {/* Wind Speed */}
       <div className={[styles.widgetBox, styles.windSpeed].join(' ')}>
-        <img
-          src="https://openweathermap.org/img/wn/01d@2x.png"
-          alt=""
-          className={styles.widgetStatus}
-        />
+        <MdOutlineWindPower className={styles.widgetStatus} />
         <p className={styles.widgetValue}>{current.windSpeed} km/h</p>
       </div>
 
       {/* Sunset */}
       <div className={[styles.widgetBox, styles.sunset].join(' ')}>
-        <img
-          src="https://openweathermap.org/img/wn/01d@2x.png"
-          alt=""
-          className={styles.widgetStatus}
-        />
+        <BsFillSunsetFill className={styles.widgetStatus} />
         <p className={styles.widgetValue}>{current.sunset}</p>
       </div>
 
