@@ -4,6 +4,7 @@ import { invoke } from '@tauri-apps/api/core';
 import { CurrentWeather } from './features/CurrentWeather/CurrentWeather';
 import { HourlyWeather } from './features/HourlyWeather/HourlyWeather';
 import { Humidity } from './features/Humidity/Humidity';
+import { UVIndex } from './features/UVIndex/UVIndex';
 
 import './App.css';
 
@@ -20,6 +21,7 @@ function App() {
       <CurrentWeather />
       <HourlyWeather />
       <Humidity />
+      <UVIndex />
     </main>
   );
 }
