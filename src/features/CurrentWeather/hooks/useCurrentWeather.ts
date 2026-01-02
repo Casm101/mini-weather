@@ -16,7 +16,7 @@ interface Weather {
 }
 
 const fetchCurrentWeather = async (location: string) => {
-  return await fetch(`${WEATHER_API_CURRENT}?key=${API_KEY}&q=${location}}`)
+  return await fetch(`${WEATHER_API_CURRENT}?key=${API_KEY}&q=${location}&aqi=no`)
     .then(response => response.json())
     .then(data => {
       return {

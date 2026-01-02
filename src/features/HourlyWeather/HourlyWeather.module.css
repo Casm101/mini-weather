@@ -1,0 +1,59 @@
+.hourlyWeather {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 0.5rem;
+
+  overflow-x: hidden;
+
+  background-color: var(--card-background-color-primary);
+  padding: 0.75rem;
+  border-radius: 1.5rem;
+
+  width: 100%;
+}
+
+.widgetBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  padding: 0.75rem;
+  border-radius: 1rem;
+
+  min-width: 3.7rem;
+
+  background: var(--card-background-color-secondary);
+
+  .widgetStatus {
+    width: 2rem;
+    color: #f9426d;
+    filter: brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(4650%)
+      hue-rotate(322deg) brightness(99%) contrast(96%);
+  }
+}
+
+.widgetDate {
+  font-size: 0.75rem;
+  font-weight: 200;
+}
+
+.widgetTemp {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.hourlyWeather::before,
+.hourlyWeather::after {
+  content: '';
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2.25rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 160ms ease;
+  z-index: 1;
+}

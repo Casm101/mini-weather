@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { invoke } from '@tauri-apps/api/core';
 
 import { CurrentWeather } from './features/CurrentWeather/CurrentWeather';
+import { HourlyWeather } from './features/HourlyWeather/HourlyWeather';
 
 import './App.css';
 
@@ -16,6 +17,7 @@ function App() {
   return (
     <main className="container">
       <CurrentWeather />
+      <HourlyWeather />
     </main>
   );
 }

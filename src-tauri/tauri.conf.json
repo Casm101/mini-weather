@@ -18,7 +18,7 @@
         "height": 900,
         "resizable": false,
         "fullscreen": false,
-        "alwaysOnTop": true
+        "alwaysOnTop": false
       }
     ],
     "security": {
@@ -34,6 +34,9 @@
       "icons/128x128@2x.png",
       "icons/icon.icns",
       "icons/icon.ico"
-    ]
+    ],
+    "iOS": {
+      "developmentTeam": "MINI-WEATHER-APP"
+    }
   }
 }

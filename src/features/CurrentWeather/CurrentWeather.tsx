@@ -3,11 +3,10 @@ import { useCurrentWeather } from './hooks/useCurrentWeather';
 import styles from './CurrentWeather.module.css';
 import { BsFillSunsetFill } from 'react-icons/bs';
 import { MdOutlineWindPower } from 'react-icons/md';
+import { FaLocationArrow } from 'react-icons/fa6';
 
 export const CurrentWeather = () => {
   const current = useCurrentWeather();
-
-  console.log(current);
 
   return (
     <div className={styles.currentWeather}>
@@ -17,7 +16,10 @@ export const CurrentWeather = () => {
         <p className={styles.widgetTemp}>
           {current.temperature}° <span>{current.condition}</span>
         </p>
-        <p className={styles.widgetLocation}>{current.location}</p>
+        <p className={styles.widgetLocation}>
+          <FaLocationArrow />
+          <span>{current.location}</span>
+        </p>
       </div>
 
       {/* Wind Speed */}
