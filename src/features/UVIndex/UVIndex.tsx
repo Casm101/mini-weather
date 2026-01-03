@@ -1,4 +1,3 @@
-import { BsCloudHazeFill } from 'react-icons/bs';
 import { FaSun } from 'react-icons/fa';
 import { GiHeavyRain } from 'react-icons/gi';
 
@@ -11,11 +10,11 @@ export const UVIndex = ({ uvIndex, heatIndex, clouds, precipitation }: ISun) => 
     <div className={styles.uvIndex}>
       {/* UV Index */}
       <div className={[styles.widgetBox, styles.uvIndexWidgetBox].join(' ')}>
+        <FaSun className={styles.widgetIcon} />
         <div className={styles.uvIndexValue}>
-          <FaSun className={styles.widgetIcon} />
           <p className={styles.widgetStatus}>{uvIndex}</p>
+          <p className={styles.widgetLabel}>UV Index</p>
         </div>
-        <p className={styles.widgetLabel}>UV Index</p>
       </div>
 
       {/* Heat Index */}
@@ -25,12 +24,9 @@ export const UVIndex = ({ uvIndex, heatIndex, clouds, precipitation }: ISun) => 
       </div>
 
       {/* Cloud Percentage */}
-      <div className={styles.widgetBox}>
-        <BsCloudHazeFill className={styles.widgetIcon} />
-        <div className={styles.subWidgetBox}>
-          <p className={styles.widgetStatus}>{clouds}%</p>
-          <p className={styles.widgetLabel}>Clouds</p>
-        </div>
+      <div className={[styles.widgetBox, styles.cloudsWidgetBox].join(' ')}>
+        <p className={styles.widgetStatus}>{clouds}%</p>
+        <p className={styles.widgetLabel}>Clouds</p>
       </div>
 
       {/* Cloud Percentage */}

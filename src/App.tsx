@@ -11,7 +11,7 @@ import { useWeather } from './hooks/useWeather';
 import './App.css';
 
 function App() {
-  const weather = useWeather();
+  const weather = useWeather('Torremolinos');
 
   // const [greetMsg, setGreetMsg] = useState('');
   // const [name, setName] = useState('');
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <main className="container">
-      <Header />
+      <Header title={weather.location} />
       <CurrentWeather
         location={weather.location}
         sunset={weather.sunset}

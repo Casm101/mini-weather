@@ -41,7 +41,9 @@ export const CurrentWeather = ({ location, sunset, current }: CurrentWeatherProp
 
       {/* Pressure */}
       <div className={[styles.widgetBox, styles.pressure].join(' ')}>
-        <p className={styles.widgetValue}>{current.pressure} hPa</p>
+        <p className={styles.widgetValue}>
+          {current.pressure} <span>hPa</span>
+        </p>
       </div>
     </div>
   );
