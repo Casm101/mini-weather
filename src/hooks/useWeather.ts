@@ -5,6 +5,9 @@ const API_KEY = '6c054dea9af148c5ba0115742250304';
 
 import { Weather } from '../types/index';
 
+// Refresh interval in milliseconds (5 minutes)
+const REFRESH_INTERVAL = 320000;
+
 const fetchWeather = async (location: string) => {
   return await fetch(`${WEATHER_API_CURRENT}?key=${API_KEY}&q=${location}&aqi=no`)
     .then(response => response.json())
@@ -68,6 +71,10 @@ export const useWeather = (location: string = 'Málaga') => {
 
   useEffect(() => {
     fetchWeather(location).then(data => setWeather(data));
+
+    setInterval(() => {
+      fetchWeather(location).then(data => setWeather(data));
+    }, REFRESH_INTERVAL);
   }, [location]);
 
   return weather;

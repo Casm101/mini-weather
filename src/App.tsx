@@ -1,5 +1,6 @@
 // import { invoke } from '@tauri-apps/api/core';
 
+import { Header } from './components/Header/Header';
 import { CurrentWeather } from './features/CurrentWeather/CurrentWeather';
 import { HourlyWeather } from './features/HourlyWeather/HourlyWeather';
 import { Humidity } from './features/Humidity/Humidity';
@@ -8,7 +9,6 @@ import { UVIndex } from './features/UVIndex/UVIndex';
 import { useWeather } from './hooks/useWeather';
 
 import './App.css';
-import { Header } from './components/Header/Header';
 
 function App() {
   const weather = useWeather();
