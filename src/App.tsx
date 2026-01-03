@@ -1,27 +1,42 @@
-import { useState } from 'react';
-import { invoke } from '@tauri-apps/api/core';
+// import { invoke } from '@tauri-apps/api/core';
 
 import { CurrentWeather } from './features/CurrentWeather/CurrentWeather';
 import { HourlyWeather } from './features/HourlyWeather/HourlyWeather';
 import { Humidity } from './features/Humidity/Humidity';
 import { UVIndex } from './features/UVIndex/UVIndex';
 
+import { useWeather } from './hooks/useWeather';
+
 import './App.css';
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState('');
-  const [name, setName] = useState('');
+  const weather = useWeather();
 
-  async function greet() {
-    setGreetMsg(await invoke('greet', { name }));
-  }
+  // const [greetMsg, setGreetMsg] = useState('');
+  // const [name, setName] = useState('');
+
+  // async function greet() {
+  //   setGreetMsg(await invoke('greet', { name }));
+  // }
 
   return (
     <main className="container">
-      <CurrentWeather />
-      <HourlyWeather />
-      <Humidity />
-      <UVIndex />
+      <CurrentWeather
+        location={weather.location}
+        sunset={weather.sunset}
+        current={weather.current}
+      />
+      <HourlyWeather localTime={weather.localTime} hourly={weather.hourly} />
+      <Humidity
+        humidity={weather.humidity.humidity}
+        dewPoint={weather.humidity.dewPoint}
+      />
+      <UVIndex
+        uvIndex={weather.sun.uvIndex}
+        heatIndex={weather.sun.heatIndex}
+        clouds={weather.sun.clouds}
+        precipitation={weather.sun.precipitation}
+      />
     </main>
   );
 }

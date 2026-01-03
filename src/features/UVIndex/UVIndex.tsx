@@ -1,13 +1,12 @@
 import { BsCloudHazeFill } from 'react-icons/bs';
-import { useUVIndex } from './hooks/useUVIndex';
 import { FaSun } from 'react-icons/fa';
 import { GiHeavyRain } from 'react-icons/gi';
 
+import { ISun } from '../../types';
+
 import styles from './UVIndex.module.css';
 
-export const UVIndex = () => {
-  const { uvIndex, heatIndex, clouds, precipitation } = useUVIndex();
-
+export const UVIndex = ({ uvIndex, heatIndex, clouds, precipitation }: ISun) => {
   return (
     <div className={styles.uvIndex}>
       {/* UV Index */}

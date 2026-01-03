@@ -1,10 +1,8 @@
-import { useHumidity } from './hooks/useHumitidy';
+import { IHumidity } from '../../types';
 
 import styles from './Humidity.module.css';
 
-export const Humidity = () => {
-  const { humidity, dewPoint } = useHumidity();
-
+export const Humidity = ({ humidity, dewPoint }: IHumidity) => {
   return (
     <div className={styles.humidity}>
       <div className={styles.widgetBox}>

@@ -1,13 +1,18 @@
-import { useCurrentWeather } from './hooks/useCurrentWeather';
-
-import styles from './CurrentWeather.module.css';
 import { BsFillSunsetFill } from 'react-icons/bs';
 import { MdOutlineWindPower } from 'react-icons/md';
 import { FaLocationArrow } from 'react-icons/fa6';
 
-export const CurrentWeather = () => {
-  const current = useCurrentWeather();
+import { ICurrentWeather } from '../../types';
 
+import styles from './CurrentWeather.module.css';
+
+interface CurrentWeatherProps {
+  location: string;
+  sunset: string;
+  current: ICurrentWeather;
+}
+
+export const CurrentWeather = ({ location, sunset, current }: CurrentWeatherProps) => {
   return (
     <div className={styles.currentWeather}>
       {/* Today's Weather */}
@@ -18,7 +23,7 @@ export const CurrentWeather = () => {
         </p>
         <p className={styles.widgetLocation}>
           <FaLocationArrow />
-          <span>{current.location}</span>
+          <span>{location}</span>
         </p>
       </div>
 
@@ -31,7 +36,7 @@ export const CurrentWeather = () => {
       {/* Sunset */}
       <div className={[styles.widgetBox, styles.sunset].join(' ')}>
         <BsFillSunsetFill className={styles.widgetStatus} />
-        <p className={styles.widgetValue}>{current.sunset}</p>
+        <p className={styles.widgetValue}>{sunset}</p>
       </div>
 
       {/* Pressure */}
