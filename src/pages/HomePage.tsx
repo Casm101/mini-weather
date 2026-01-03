@@ -8,10 +8,13 @@ import { UVIndex } from '../features/UVIndex/UVIndex';
 
 import { useWeather } from '../hooks/useWeather';
 import { useRouter } from './Router';
+import { useLocation } from '../state';
 
 export const HomePage = () => {
-  const weather = useWeather('Málaga');
+  const [location] = useLocation();
   const { goToPage } = useRouter();
+
+  const weather = useWeather(location);
 
   const goToSettings = () => goToPage('settings');
 

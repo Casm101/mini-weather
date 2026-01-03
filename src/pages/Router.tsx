@@ -2,8 +2,9 @@ import { atom, useAtom } from 'jotai';
 
 import { HomePage } from './HomePage';
 import { SettingsPage } from './SettingsPage';
+import { Pages } from '../types';
 
-const pages = [
+const pages: Pages = [
   {
     path: 'homePage',
     component: <HomePage />,
@@ -16,7 +17,7 @@ const pages = [
 
 type RouterPage = (typeof pages)[number]['path'];
 
-const currentPageAtom = atom<RouterPage>('homePage');
+const currentPageAtom = atom<RouterPage>('settings');
 
 export const useRouter = () => {
   const [currentPage, setCurrentPage] = useAtom<RouterPage>(currentPageAtom);

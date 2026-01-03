@@ -33,3 +33,10 @@ export interface ISun {
   clouds: number;
   precipitation: number;
 }
+
+export interface Page {
+  path: string;
+  component: React.ReactElement;
+}
+
+export type Pages = Page[];
