@@ -5,7 +5,9 @@ const API_KEY = '6c054dea9af148c5ba0115742250304';
 
 interface Weather {
   uvIndex: string;
+  heatIndex: string;
   clouds: string;
+  precipitation: string;
 }
 
 const fetchUVIndex = async (location: string) => {
@@ -14,7 +16,9 @@ const fetchUVIndex = async (location: string) => {
     .then(data => {
       return {
         uvIndex: data.current.uv,
+        heatIndex: data.current.heatindex_c,
         clouds: data.current.cloud,
+        precipitation: data.current.precip_mm,
       };
     });
 };
@@ -22,7 +26,9 @@ const fetchUVIndex = async (location: string) => {
 export const useUVIndex = (location: string = 'Málaga') => {
   const [uvIndex, setUVIndex] = useState<Weather>({
     uvIndex: '',
+    heatIndex: '',
     clouds: '',
+    precipitation: '',
   });
 
   useEffect(() => {

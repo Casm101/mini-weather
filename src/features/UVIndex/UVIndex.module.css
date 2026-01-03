@@ -1,8 +1,9 @@
 .uvIndex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: 1.75fr 1.37fr 1.37fr;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 0.5rem;
+  column-gap: 0.5rem;
 
   background-color: var(--card-background-color-primary);
 
@@ -14,10 +15,10 @@
 
 .widgetBox {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 1rem;
 
   flex: 1;
 
@@ -26,10 +27,61 @@
 
   background: var(--card-background-color-secondary);
 
-  .widgetStatus {
-    font-size: 2rem;
-    color: #f9426d;
+  .widgetIcon {
+    font-size: 2.75rem;
     filter: brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(4650%)
       hue-rotate(322deg) brightness(99%) contrast(96%);
   }
+
+  .widgetStatus {
+    font-size: 2rem;
+    color: #f9426d;
+  }
+}
+
+.subWidgetBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.uvIndexWidgetBox {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+
+  .uvIndexValue {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    p,
+    svg {
+      font-size: 3.5rem;
+    }
+  }
+}
+
+.heatIndexWidgetBox {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.precipitationWidgetBox {
+  grid-column: 2 / span 2;
+  grid-row: 2 / span 2;
 }

@@ -1,10 +1,10 @@
-import { useHourlyWeather } from './hooks/useWeeklyWeather';
+import { useHourlyWeather } from './hooks/useHourlyWeather';
 
 import styles from './HourlyWeather.module.css';
 
 export const HourlyWeather = () => {
-  const hourly = useHourlyWeather();
-  const currentTime = new Date().getHours();
+  const { localTime, hourly } = useHourlyWeather();
+  const currentTime = new Date(localTime).getHours();
   const visibleHours = hourly
     .filter(hour => {
       const hourTime = Number.parseInt(hour.time.split(':')[0]);
