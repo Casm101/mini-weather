@@ -4,41 +4,21 @@
   grid-template-rows: 1fr 1fr;
   row-gap: 0.5rem;
   column-gap: 0.5rem;
-
-  background-color: var(--card-background-color-primary);
-
-  padding: 0.75rem;
-  border-radius: 1.5rem;
-
-  width: 100%;
 }
 
-.widgetBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-
-  padding: 0.75rem;
-  border-radius: 1rem;
-
-  background: var(--card-background-color-secondary);
-
-  .widgetStatus {
-    font-size: 2rem;
-    color: #f9426d;
-    filter: brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(4650%)
-      hue-rotate(322deg) brightness(99%) contrast(96%);
-  }
+.widgetIcon {
+  font-size: 2rem;
+  color: var(--highlight-color-primary);
+  filter: var(--highlight-filter-primary);
 }
 
 .dailyWeather {
   align-items: flex-start;
+
   grid-column: 1 / span 1;
   grid-row: 1 / span 3;
 
-  .widgetStatus {
+  .widgetIcon {
     width: 6rem;
   }
 
@@ -66,12 +46,6 @@
 .windSpeed {
   grid-column: 2 / span 1;
   grid-row: 1 / span 1;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
 }
 
 .sunset {

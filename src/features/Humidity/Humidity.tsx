@@ -1,19 +1,20 @@
+import { Card, CardBox } from '../../components/Widget/Widget';
 import { IHumidity } from '../../types';
 
 import styles from './Humidity.module.css';
 
 export const Humidity = ({ humidity, dewPoint }: IHumidity) => {
   return (
-    <div className={styles.humidity}>
-      <div className={styles.widgetBox}>
-        <p className={styles.widgetStatus}>{humidity}%</p>
-        <p className={styles.widgetLabel}>Humidity</p>
-      </div>
+    <Card className={styles.humidity}>
+      <CardBox className={styles.humidityBox}>
+        <p className={styles.widgetValue}>{humidity}%</p>
+        <p>Humidity</p>
+      </CardBox>
 
-      <div className={styles.widgetBox}>
-        <p className={styles.widgetStatus}>{dewPoint}°</p>
-        <p className={styles.widgetLabel}>Dew Point</p>
-      </div>
-    </div>
+      <CardBox className={styles.dewBox}>
+        <p className={styles.widgetValue}>{dewPoint}°</p>
+        <p>Dew Point</p>
+      </CardBox>
+    </Card>
   );
 };

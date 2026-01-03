@@ -4,6 +4,10 @@
 
   --card-background-color-primary: #010101;
   --card-background-color-secondary: #141414;
+
+  --highlight-color-primary: #f9426d;
+  --highlight-filter-primary: brightness(0) saturate(100%) invert(42%) sepia(93%)
+    saturate(4650%) hue-rotate(322deg) brightness(99%) contrast(96%);
 }
 
 @media (prefers-color-scheme: light) {

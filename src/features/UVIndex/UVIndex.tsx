@@ -4,39 +4,40 @@ import { GiHeavyRain } from 'react-icons/gi';
 import { ISun } from '../../types';
 
 import styles from './UVIndex.module.css';
+import { Card, CardBox } from '../../components/Widget/Widget';
 
 export const UVIndex = ({ uvIndex, heatIndex, clouds, precipitation }: ISun) => {
   return (
-    <div className={styles.uvIndex}>
+    <Card className={styles.uvIndex}>
       {/* UV Index */}
-      <div className={[styles.widgetBox, styles.uvIndexWidgetBox].join(' ')}>
+      <CardBox className={[styles.widgetBox, styles.uvIndexWidgetBox].join(' ')}>
         <FaSun className={styles.widgetIcon} />
         <div className={styles.uvIndexValue}>
           <p className={styles.widgetStatus}>{uvIndex}</p>
           <p className={styles.widgetLabel}>UV Index</p>
         </div>
-      </div>
+      </CardBox>
 
       {/* Heat Index */}
-      <div className={[styles.widgetBox, styles.heatIndexWidgetBox].join(' ')}>
+      <CardBox className={[styles.widgetBox, styles.heatIndexWidgetBox].join(' ')}>
         <p className={styles.widgetStatus}>{heatIndex}</p>
         <p className={styles.widgetLabel}>Heat Index</p>
-      </div>
+      </CardBox>
 
       {/* Cloud Percentage */}
-      <div className={[styles.widgetBox, styles.cloudsWidgetBox].join(' ')}>
+      <CardBox className={[styles.widgetBox, styles.cloudsWidgetBox].join(' ')}>
         <p className={styles.widgetStatus}>{clouds}%</p>
         <p className={styles.widgetLabel}>Clouds</p>
-      </div>
+      </CardBox>
 
       {/* Cloud Percentage */}
-      <div className={[styles.widgetBox, styles.precipitationWidgetBox].join(' ')}>
+      <CardBox className={[styles.widgetBox, styles.precipitationWidgetBox].join(' ')}>
         <GiHeavyRain className={styles.widgetIcon} />
         <div className={styles.subWidgetBox}>
           <p className={styles.widgetStatus}>{precipitation}mm</p>
           <p className={styles.widgetLabel}>Precipitation</p>
         </div>
-      </div>
-    </div>
+      </CardBox>
+    </Card>
   );
 };

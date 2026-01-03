@@ -11,7 +11,7 @@ import { useWeather } from './hooks/useWeather';
 import './App.css';
 
 function App() {
-  const weather = useWeather('Torremolinos');
+  const weather = useWeather('Málaga');
 
   // const [greetMsg, setGreetMsg] = useState('');
   // const [name, setName] = useState('');

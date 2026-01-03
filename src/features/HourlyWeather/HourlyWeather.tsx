@@ -1,3 +1,4 @@
+import { Card, CardBox } from '../../components/Widget/Widget';
 import { IHourlyWeather } from '../../types';
 
 import styles from './HourlyWeather.module.css';
@@ -18,16 +19,16 @@ export const HourlyWeather = ({ localTime, hourly }: HourlyWeatherProps) => {
     .slice(0, 7);
 
   return (
-    <div className={styles.hourlyWeather}>
+    <Card className={styles.hourlyWeather}>
       {visibleHours.map(hour => {
         return (
-          <div key={hour.time} className={styles.widgetBox}>
+          <CardBox key={hour.time}>
             <p className={styles.widgetDate}>{hour.time}</p>
-            <img src={hour.conditionIcon} alt="" className={styles.widgetStatus} />
+            <img src={hour.conditionIcon} alt="" className={styles.widgetIcon} />
             <p className={styles.widgetTemp}>{hour.temperature}°</p>
-          </div>
+          </CardBox>
         );
       })}
-    </div>
+    </Card>
   );
 };

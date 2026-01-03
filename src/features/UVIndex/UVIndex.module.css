@@ -6,37 +6,20 @@
   column-gap: 0.5rem;
 
   background-color: var(--card-background-color-primary);
-
-  padding: 0.75rem;
-  border-radius: 1.5rem;
-
-  width: 100%;
 }
 
 .widgetBox {
-  display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+}
 
-  flex: 1;
+.widgetIcon {
+  font-size: 2.75rem;
+  filter: var(--highlight-filter-primary);
+}
 
-  padding: 0.75rem;
-  border-radius: 1rem;
-
-  background: var(--card-background-color-secondary);
-
-  .widgetIcon {
-    font-size: 2.75rem;
-    filter: brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(4650%)
-      hue-rotate(322deg) brightness(99%) contrast(96%);
-  }
-
-  .widgetStatus {
-    font-size: 2rem;
-    color: #f9426d;
-  }
+.widgetStatus {
+  font-size: 2rem;
+  color: var(--highlight-color-primary);
 }
 
 .subWidgetBox {
