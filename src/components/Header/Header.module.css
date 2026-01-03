@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  width: 100%;
+
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.icon {
+  font-size: 2rem;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(4650%)
+      hue-rotate(322deg) brightness(99%) contrast(96%);
+  }
+}

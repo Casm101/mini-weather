@@ -8,6 +8,7 @@ import { UVIndex } from './features/UVIndex/UVIndex';
 import { useWeather } from './hooks/useWeather';
 
 import './App.css';
+import { Header } from './components/Header/Header';
 
 function App() {
   const weather = useWeather();
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <main className="container">
+      <Header />
       <CurrentWeather
         location={weather.location}
         sunset={weather.sunset}
