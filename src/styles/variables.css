@@ -8,6 +8,9 @@
   --highlight-color-primary: #f9426d;
   --highlight-filter-primary: brightness(0) saturate(100%) invert(42%) sepia(93%)
     saturate(4650%) hue-rotate(322deg) brightness(99%) contrast(96%);
+
+  --input-background-color: #010101;
+  --input-border-color: #262626;
 }
 
 @media (prefers-color-scheme: light) {
