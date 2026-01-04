@@ -7,21 +7,29 @@ interface CardProps {
 
 interface CardWithTitleProps extends CardProps {
   title: string;
+  titleClassName?: string;
+  contentClassName?: string;
 }
 
-export const Card = ({ children, className }: CardProps) => {
+export const Card = ({ children, className = '' }: CardProps) => {
   return <div className={[className, styles.card].join(' ')}>{children}</div>;
 };
 
-export const CardBox = ({ children, className }: CardProps) => {
+export const CardBox = ({ children, className = '' }: CardProps) => {
   return <div className={[className, styles.cardBox].join(' ')}>{children}</div>;
 };
 
-export const CardWithTitle = ({ children, className, title }: CardWithTitleProps) => {
+export const CardWithTitle = ({
+  children,
+  className = '',
+  title,
+  titleClassName = '',
+  contentClassName = '',
+}: CardWithTitleProps) => {
   return (
     <div className={[className, styles.cardWithTitle].join(' ')}>
-      <p className={styles.cardTitle}>{title}</p>
-      <div className={styles.cardContent}>{children}</div>
+      <p className={[titleClassName, styles.cardTitle].join(' ')}>{title}</p>
+      <div className={[contentClassName, styles.cardContent].join(' ')}>{children}</div>
     </div>
   );
 };

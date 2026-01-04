@@ -17,28 +17,55 @@ const fetchWeather = async (location: string) => {
         location: data.location.name,
         sunset: data.forecast.forecastday[0].astro.sunset,
         current: {
-          temperature: data.current.temp_c,
+          temperature: {
+            metric: data.current.temp_c,
+            imperial: data.current.temp_f,
+          },
           condition: data.current.condition.text,
           conditionIcon: data.current.condition.icon,
-          maxTemp: data.forecast.forecastday[0].day.maxtemp_c.toFixed(0),
-          minTemp: data.forecast.forecastday[0].day.mintemp_c.toFixed(0),
-          windSpeed: data.current.wind_kph,
-          pressure: data.current.pressure_mb,
+          // maxTemp: {
+          //   metric: data.forecast.forecastday[0].day.maxtemp_c.toFixed(0),
+          //   imperial: data.forecast.forecastday[0].day.maxtemp_f.toFixed(0),
+          // },
+          // minTemp: {
+          //   metric: data.forecast.forecastday[0].day.mintemp_c.toFixed(0),
+          //   imperial: data.forecast.forecastday[0].day.mintemp_f.toFixed(0),
+          // },
+          windSpeed: {
+            metric: data.current.wind_kph,
+            imperial: data.current.wind_mph,
+          },
+          pressure: {
+            metric: data.current.pressure_mb,
+            imperial: data.current.pressure_in,
+          },
         },
         hourly: data.forecast.forecastday[0].hour.map((hour: any) => ({
           time: hour.time.split(' ')[1],
-          temperature: hour.temp_c.toFixed(0),
+          temperature: {
+            metric: hour.temp_c.toFixed(0),
+            imperial: hour.temp_f.toFixed(0),
+          },
           conditionIcon: hour.condition.icon,
         })),
         humidity: {
           humidity: data.current.humidity,
-          dewPoint: data.current.dewpoint_c,
+          dewPoint: {
+            metric: data.current.dewpoint_c,
+            imperial: data.current.dewpoint_f,
+          },
         },
         sun: {
           uvIndex: data.current.uv,
-          heatIndex: data.current.heatindex_c,
+          heatIndex: {
+            metric: data.current.heatindex_c,
+            imperial: data.current.heatindex_f,
+          },
           clouds: data.current.cloud,
-          precipitation: data.current.precip_mm,
+          precipitation: {
+            metric: data.current.precip_mm,
+            imperial: data.current.precip_in,
+          },
         },
       };
     });
@@ -50,22 +77,40 @@ export const useWeather = (location: string = 'Málaga') => {
     location: '',
     sunset: '',
     current: {
-      temperature: 0,
+      temperature: {
+        metric: 0,
+        imperial: 0,
+      },
       condition: '',
       conditionIcon: '',
-      windSpeed: 0,
-      pressure: 0,
+      windSpeed: {
+        metric: 0,
+        imperial: 0,
+      },
+      pressure: {
+        metric: 0,
+        imperial: 0,
+      },
     },
     hourly: [],
     humidity: {
       humidity: 0,
-      dewPoint: 0,
+      dewPoint: {
+        metric: 0,
+        imperial: 0,
+      },
     },
     sun: {
       uvIndex: 0,
-      heatIndex: 0,
+      heatIndex: {
+        metric: 0,
+        imperial: 0,
+      },
       clouds: 0,
-      precipitation: 0,
+      precipitation: {
+        metric: 0,
+        imperial: 0,
+      },
     },
   });
 

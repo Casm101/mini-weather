@@ -1,4 +1,5 @@
 import { Card, CardBox } from '../../components/Widget/Widget';
+import { useMeassurement } from '../../state';
 import { IHourlyWeather } from '../../types';
 
 import styles from './HourlyWeather.module.css';
@@ -9,6 +10,8 @@ interface HourlyWeatherProps {
 }
 
 export const HourlyWeather = ({ localTime, hourly }: HourlyWeatherProps) => {
+  const [tempMeassurement] = useMeassurement();
+
   const currentTime = new Date(localTime).getHours();
 
   const visibleHours = hourly
@@ -25,7 +28,7 @@ export const HourlyWeather = ({ localTime, hourly }: HourlyWeatherProps) => {
           <CardBox key={hour.time}>
             <p className={styles.widgetDate}>{hour.time}</p>
             <img src={hour.conditionIcon} alt="" className={styles.widgetIcon} />
-            <p className={styles.widgetTemp}>{hour.temperature}°</p>
+            <p className={styles.widgetTemp}>{hour.temperature[tempMeassurement]}°</p>
           </CardBox>
         );
       })}

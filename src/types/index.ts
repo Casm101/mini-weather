@@ -9,29 +9,50 @@ export interface Weather {
 }
 
 export interface ICurrentWeather {
-  temperature: number;
+  temperature: {
+    metric: number;
+    imperial: number;
+  };
   condition: string;
   conditionIcon: string;
-  windSpeed: number;
-  pressure: number;
+  windSpeed: {
+    metric: number;
+    imperial: number;
+  };
+  pressure: {
+    metric: number;
+    imperial: number;
+  };
 }
 
 export interface IHourlyWeather {
   time: string;
-  temperature: number;
+  temperature: {
+    metric: number;
+    imperial: number;
+  };
   conditionIcon: string;
 }
 
 export interface IHumidity {
   humidity: number;
-  dewPoint: number;
+  dewPoint: {
+    metric: number;
+    imperial: number;
+  };
 }
 
 export interface ISun {
   uvIndex: number;
-  heatIndex: number;
+  heatIndex: {
+    metric: number;
+    imperial: number;
+  };
   clouds: number;
-  precipitation: number;
+  precipitation: {
+    metric: number;
+    imperial: number;
+  };
 }
 
 export interface Page {
@@ -40,3 +61,5 @@ export interface Page {
 }
 
 export type Pages = Page[];
+
+export type TempMeassurement = 'metric' | 'imperial';

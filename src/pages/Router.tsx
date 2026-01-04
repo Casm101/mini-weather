@@ -2,7 +2,7 @@ import { useAtom } from 'jotai';
 import { atomWithStorage } from 'jotai/utils';
 
 import { HomePage } from './HomePage';
-import { SettingsPage } from './SettingsPage';
+import { SettingsPage } from './SettingsPage/SettingsPage';
 import { Pages } from '../types';
 
 const pages: Pages = [

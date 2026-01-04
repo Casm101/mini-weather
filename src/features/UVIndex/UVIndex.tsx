@@ -5,8 +5,12 @@ import { ISun } from '../../types';
 
 import styles from './UVIndex.module.css';
 import { Card, CardBox } from '../../components/Widget/Widget';
+import { useMeassurement } from '../../state';
 
 export const UVIndex = ({ uvIndex, heatIndex, clouds, precipitation }: ISun) => {
+  const [tempMeassurement] = useMeassurement();
+  const precipitationUnit = tempMeassurement === 'metric' ? 'mm' : 'in';
+
   return (
     <Card className={styles.uvIndex}>
       {/* UV Index */}
@@ -20,7 +24,7 @@ export const UVIndex = ({ uvIndex, heatIndex, clouds, precipitation }: ISun) => 
 
       {/* Heat Index */}
       <CardBox className={[styles.widgetBox, styles.heatIndexWidgetBox].join(' ')}>
-        <p className={styles.widgetStatus}>{heatIndex}</p>
+        <p className={styles.widgetStatus}>{heatIndex[tempMeassurement]}</p>
         <p className={styles.widgetLabel}>Heat Index</p>
       </CardBox>
 
@@ -34,7 +38,10 @@ export const UVIndex = ({ uvIndex, heatIndex, clouds, precipitation }: ISun) => 
       <CardBox className={[styles.widgetBox, styles.precipitationWidgetBox].join(' ')}>
         <GiHeavyRain className={styles.widgetIcon} />
         <div className={styles.subWidgetBox}>
-          <p className={styles.widgetStatus}>{precipitation}mm</p>
+          <p className={styles.widgetStatus}>
+            {precipitation[tempMeassurement]}
+            {precipitationUnit}
+          </p>
           <p className={styles.widgetLabel}>Precipitation</p>
         </div>
       </CardBox>
