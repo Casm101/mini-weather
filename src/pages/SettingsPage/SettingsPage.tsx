@@ -3,17 +3,20 @@ import { IoArrowBackOutline } from 'react-icons/io5';
 import { Header } from '../../components/Header/Header';
 import { InputWithLabel } from '../../components/Input/Input';
 import { CardBox, CardWithTitle } from '../../components/Widget/Widget';
+import { DropdownWithLabel } from '../../components/Dropdown/Dropdown';
+import { ColourSelector } from '../../components/ColourSelector/ColourSelector';
 
 import { useRouter } from '../Router';
-import { useLocation, useMeassurement } from '../../state';
-import { DropdownWithLabel } from '../../components/Dropdown/Dropdown';
-import { TempMeassurement } from '../../types';
+import { useLocation, useMeassurement, useTheme } from '../../state';
+
+import { ThemeColours, type TempMeassurement, type ThemeColourType } from '../../types';
 
 import styles from './SettingsPage.module.css';
 
 export const SettingsPage = () => {
   const [location, setLocation] = useLocation();
   const [meassurement, setMeassurement] = useMeassurement();
+  const [theme, setTheme] = useTheme();
 
   const { goToPage } = useRouter();
 
@@ -23,6 +26,10 @@ export const SettingsPage = () => {
 
   const handleMeassurementChange = (newMeassurement: TempMeassurement) => {
     setMeassurement(newMeassurement);
+  };
+
+  const handleThemeChange = (newTheme: ThemeColourType) => {
+    setTheme(newTheme);
   };
 
   const goBack = () => goToPage('homePage');
@@ -56,6 +63,19 @@ export const SettingsPage = () => {
               { value: 'metric', label: 'Metric' },
               { value: 'imperial', label: 'Imperial' },
             ]}
+          />
+        </CardBox>
+      </CardWithTitle>
+      <CardWithTitle
+        title="Theme Settings"
+        className={styles.themeSettingsCard}
+        contentClassName={styles.themeSettingsContent}
+      >
+        <CardBox>
+          <ColourSelector
+            selectedColour={theme}
+            colours={ThemeColours}
+            onSelectColour={handleThemeChange}
           />
         </CardBox>
       </CardWithTitle>

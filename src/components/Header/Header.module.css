@@ -20,7 +20,6 @@
   cursor: pointer;
 
   &:hover {
-    filter: brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(4650%)
-      hue-rotate(322deg) brightness(99%) contrast(96%);
+    filter: var(--highlight-filter-primary);
   }
 }

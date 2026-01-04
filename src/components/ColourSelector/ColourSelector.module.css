@@ -1,0 +1,55 @@
+.colourSelector {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 0.5rem;
+
+  width: 100%;
+}
+
+.colourOption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 2px solid var(--input-border-color);
+
+  &.selected {
+    border: 2px solid #fff;
+  }
+
+  .colourOptionInner {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+
+    &.hotpink {
+      background: #f9426d;
+    }
+
+    &.limegreen {
+      background: #c7ff06;
+    }
+
+    &.sunyellow {
+      background: #edb901;
+    }
+
+    &.skyblue {
+      background: #bde4f6;
+    }
+
+    &.grapepurple {
+      background: #7150c4;
+    }
+
+    &.cloudgrey {
+      background: #eaeaea;
+    }
+  }
+}

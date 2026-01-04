@@ -63,3 +63,14 @@ export interface Page {
 export type Pages = Page[];
 
 export type TempMeassurement = 'metric' | 'imperial';
+
+export const ThemeColours = [
+  'hotpink',
+  'limegreen',
+  'sunyellow',
+  'skyblue',
+  'grapepurple',
+  'cloudgrey',
+] as const;
+
+export type ThemeColourType = (typeof ThemeColours)[number];
