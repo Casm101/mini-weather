@@ -1,15 +1,23 @@
 import { useEffect, useState } from 'react';
 
-const WEATHER_API_CURRENT = 'http://api.weatherapi.com/v1/forecast.json';
-const API_KEY = '6c054dea9af148c5ba0115742250304';
+import { useApiKey } from '../state';
 
 import { Weather } from '../types/index';
 
 // Refresh interval in milliseconds (5 minutes)
 const REFRESH_INTERVAL = 320000;
+const WEATHER_API_CURRENT = 'http://api.weatherapi.com/v1/forecast.json';
 
-const fetchWeather = async (location: string) => {
-  return await fetch(`${WEATHER_API_CURRENT}?key=${API_KEY}&q=${location}&aqi=no`)
+const fetchWeather = async (location: string, apiKey?: string) => {
+  if (!location) {
+    throw new Error('Location is required');
+  }
+
+  if (!apiKey) {
+    throw new Error('API key is required');
+  }
+
+  return await fetch(`${WEATHER_API_CURRENT}?key=${apiKey}&q=${location}&aqi=no`)
     .then(response => response.json())
     .then(data => {
       return {
@@ -72,6 +80,7 @@ const fetchWeather = async (location: string) => {
 };
 
 export const useWeather = (location: string = 'Málaga') => {
+  const [apiKey] = useApiKey();
   const [weather, setWeather] = useState<Weather>({
     localTime: '',
     location: '',
@@ -115,10 +124,10 @@ export const useWeather = (location: string = 'Málaga') => {
   });
 
   useEffect(() => {
-    fetchWeather(location).then(data => setWeather(data));
+    fetchWeather(location, apiKey).then(data => setWeather(data));
 
     setInterval(() => {
-      fetchWeather(location).then(data => setWeather(data));
+      fetchWeather(location, apiKey).then(data => setWeather(data));
     }, REFRESH_INTERVAL);
   }, [location]);
 

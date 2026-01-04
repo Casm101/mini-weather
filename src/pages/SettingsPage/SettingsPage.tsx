@@ -7,7 +7,7 @@ import { DropdownWithLabel } from '../../components/Dropdown/Dropdown';
 import { ColourSelector } from '../../components/ColourSelector/ColourSelector';
 
 import { useRouter } from '../Router';
-import { useLocation, useMeassurement, useTheme } from '../../state';
+import { useApiKey, useLocation, useMeassurement, useTheme } from '../../state';
 
 import { ThemeColours, type TempMeassurement, type ThemeColourType } from '../../types';
 
@@ -17,6 +17,7 @@ export const SettingsPage = () => {
   const [location, setLocation] = useLocation();
   const [meassurement, setMeassurement] = useMeassurement();
   const [theme, setTheme] = useTheme();
+  const [apiKey, setApiKey] = useApiKey();
 
   const { goToPage } = useRouter();
 
@@ -32,6 +33,10 @@ export const SettingsPage = () => {
     setTheme(newTheme);
   };
 
+  const handleApiKeyChange = (newApiKey: string) => {
+    setApiKey(newApiKey);
+  };
+
   const goBack = () => goToPage('homePage');
 
   return (
@@ -40,6 +45,8 @@ export const SettingsPage = () => {
         title="Settings"
         leftAction={{ icon: IoArrowBackOutline, action: goBack }}
       />
+
+      {/* Location Settings */}
       <CardWithTitle
         title="Location Settings"
         className={styles.locationSettingsCard}
@@ -66,6 +73,8 @@ export const SettingsPage = () => {
           />
         </CardBox>
       </CardWithTitle>
+
+      {/* Theme Settings */}
       <CardWithTitle
         title="Theme Settings"
         className={styles.themeSettingsCard}
@@ -76,6 +85,22 @@ export const SettingsPage = () => {
             selectedColour={theme}
             colours={ThemeColours}
             onSelectColour={handleThemeChange}
+          />
+        </CardBox>
+      </CardWithTitle>
+
+      {/* API Settings */}
+      <CardWithTitle
+        title="API Settings"
+        className={styles.apiSettingsCard}
+        contentClassName={styles.apiSettingsContent}
+      >
+        <CardBox>
+          <InputWithLabel
+            label="Weather API Key"
+            placeholder="Enter API key"
+            value={apiKey}
+            onChange={e => handleApiKeyChange(e.target.value)}
           />
         </CardBox>
       </CardWithTitle>
