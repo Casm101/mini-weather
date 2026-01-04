@@ -1,4 +1,5 @@
-import { atom, useAtom } from 'jotai';
+import { useAtom } from 'jotai';
+import { atomWithStorage } from 'jotai/utils';
 
 import { HomePage } from './HomePage';
 import { SettingsPage } from './SettingsPage';
@@ -17,7 +18,7 @@ const pages: Pages = [
 
 type RouterPage = (typeof pages)[number]['path'];
 
-const currentPageAtom = atom<RouterPage>('settings');
+const currentPageAtom = atomWithStorage<RouterPage>('currentPage', 'settings');
 
 export const useRouter = () => {
   const [currentPage, setCurrentPage] = useAtom<RouterPage>(currentPageAtom);

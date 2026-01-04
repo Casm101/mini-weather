@@ -1,4 +1,5 @@
-import { atom, useAtom } from 'jotai';
+import { useAtom } from 'jotai';
+import { atomWithStorage } from 'jotai/utils';
 
-const locationAtom = atom<string>('Málaga');
+const locationAtom = atomWithStorage<string>('location', 'Málaga');
 export const useLocation = () => useAtom(locationAtom);
