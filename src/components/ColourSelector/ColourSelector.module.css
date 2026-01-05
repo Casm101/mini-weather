@@ -20,7 +20,7 @@
   border: 2px solid var(--input-border-color);
 
   &.selected {
-    border: 2px solid #fff;
+    border: 2px solid var(--input-selected-color);
   }
 
   .colourOptionInner {
