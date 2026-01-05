@@ -24,6 +24,7 @@ const fetchWeather = async (location: string, apiKey?: string) => {
         localTime: data.location.localtime,
         location: data.location.name,
         sunset: data.forecast.forecastday[0].astro.sunset,
+        isDay: data.current.is_day === 1,
         current: {
           temperature: {
             metric: data.current.temp_c,
@@ -85,6 +86,7 @@ export const useWeather = (location: string = 'Málaga') => {
     localTime: '',
     location: '',
     sunset: '',
+    isDay: true,
     current: {
       temperature: {
         metric: 0,

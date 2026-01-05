@@ -39,6 +39,7 @@ export const HomePage = () => {
         heatIndex={weather.sun.heatIndex}
         clouds={weather.sun.clouds}
         precipitation={weather.sun.precipitation}
+        isDay={weather.isDay}
       />
     </>
   );

@@ -2,6 +2,7 @@ export interface Weather {
   localTime: string;
   location: string;
   sunset: string;
+  isDay: boolean;
   current: ICurrentWeather;
   hourly: IHourlyWeather[];
   humidity: IHumidity;
