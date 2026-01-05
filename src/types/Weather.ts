@@ -1,0 +1,56 @@
+export interface Weather {
+  localTime: string;
+  location: string;
+  sunset: string;
+  current: ICurrentWeather;
+  hourly: IHourlyWeather[];
+  humidity: IHumidity;
+  sun: ISun;
+}
+
+export interface ICurrentWeather {
+  temperature: {
+    metric: number;
+    imperial: number;
+  };
+  condition: string;
+  conditionIcon: string;
+  windSpeed: {
+    metric: number;
+    imperial: number;
+  };
+  pressure: {
+    metric: number;
+    imperial: number;
+  };
+}
+
+export interface IHourlyWeather {
+  time: string;
+  temperature: {
+    metric: number;
+    imperial: number;
+  };
+  conditionIcon: string;
+}
+
+export interface IHumidity {
+  humidity: number;
+  dewPoint: {
+    metric: number;
+    imperial: number;
+  };
+}
+
+export interface ISun {
+  uvIndex: number;
+  heatIndex: {
+    metric: number;
+    imperial: number;
+  };
+  clouds: number;
+  precipitation: {
+    metric: number;
+    imperial: number;
+  };
+}
